@@ -1,0 +1,17 @@
+h1 {
+    color: red;
+}
+
+a {
+    color: green;
+    display: block;
+}
+
+p {
+    color: blue;
+    display: inline;
+}
+
+img {
+    display: none;
+}

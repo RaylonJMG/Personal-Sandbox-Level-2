@@ -1,0 +1,74 @@
+<head>
+    <title>FormInputs></title>
+    <script src="utility-functions.js"></script>
+    <script src="forms.js"></script>
+</head>
+
+<body>
+    <h1>Form Inputs</h1>
+
+    <h2>Inputs</h2>
+
+    <h3>Buttons</h3>
+    <pre>
+        <button type="button">Click Button>
+        <input type="button" value="Click Button">
+        <input type="submit" value="Add Submission">
+        <input type="reset" value="Reset Form">
+        <input type="image" value="submit-button.png">
+        <input type="radio"> Radio Button
+        <input type="checkbox"> Check Box
+    </pre>
+
+    <h3>Text Inputs</h3>
+    <pre>
+        <input type="text" placeholder="Text input">
+        <input type="email" placeholder="Email input">
+        <input type="tel" placeholder="Telephone number input">
+        <input type="number" placeholder="Number input">
+        <input type="password" placeholder="Password input">
+        <input type="search" placeholder="Search input">
+        <input type="url" placeholder="URL input">
+    </pre>
+
+    <h3>Interfaces</h3>
+    <pre>
+        <input type="file"> Adds a files
+        <input type="color"> Color Picker
+        <input type="time"> Clock/Time
+        <input type="week"> Week Picker
+        <input type="month"> Month Picker
+        <input type="date"> Date Picker
+        <input type="datetime-local"> Date & Time Picker
+        <input type="number" min="10" max="30">Number Range
+        <input type="range" min="10" max="30">Number Range with Slider
+        <select>
+            <option selected>Dropdown</option>
+            <option>Item 1</option>
+            <option>Item 2</option>
+            <option>Item 3</option>
+        </select>
+    </pre>
+
+    <h2>Forms</h2>
+    <h3>Validation</h3>
+    <pre>
+        Forms can validate their input. Inputs are checked before submission.Type invalid values to see form validation.
+    </pre>
+    <form>
+        <input type="email" placeholder="Email address">
+        <input type="submit" placeholder="">
+    </form>
+
+    <form onsubmit="myProcessorForm(event)">
+        <input required name="firstname" name="lastname" type="password" placeholder="Password"><br>
+        <button type="submit">Submit</button>
+    </form>
+    <script>
+        display("Hello World");
+    </script>
+    <div id="outputTag"></div>
+    <button onclick="display('Amazing World!')"></button>
+
+
+    </body

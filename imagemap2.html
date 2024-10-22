@@ -1,0 +1,61 @@
+<h1>Image Map</h1>
+<p>
+    Creating clickable regions in a picture.<br> Hover the mouse over some shapes.
+</p>
+<img width="50%" usemap="#my-image-map" src="2d-shapes.jpg" alt="shapes">
+<map name="my-image-map">
+    <area 
+        title="Click the Rectangle" 
+        coords="195,70, 365,170" 
+        shape="rect" 
+        href="#https://en.wikipedia.org/wiki/Rectangle"
+        >
+    <area 
+        title="Click the Circle" 
+        coords="606,118, 55" 
+        shape="circle" 
+        href="#circles"
+    >
+    <area 
+        title="Click the Heart" 
+        coords="608,520, 633,509, 660,536, 609,600, 557,536, 579,509" 
+        shape="poly" 
+        href="#https://en.wikipedia.org/wiki/Heart"
+    >
+</map>
+<h2>Instructions on using image maps</h2>
+<p>
+    <ol>
+        <li>Use <code>&lt;map&gt;</code> and <code>&lt;area&gt;</code> to define an image map.
+            <ul>
+                <li><code>&lt;map&gt;</code> needs the name attribute</li>
+                <li><code>&lt;img&gt;</code> needs the <b>usemap</b> attribute</li>
+                <li><b>usemap</b> should start with <b>#</b> and match <b>name</b></li>
+            </ul>
+        </li>
+        <li><code>&lt;area&gt;</code> needs the <b>shape</b> attribute
+            <ul>
+                <li>shapes can be <b>rect</b>, <b>poly</b>, or <b>circle</b></li>
+                <li><code>&lt;area&gt;</code> attribute needs the <b>coords</b> attribute</li>
+                <li><b>coords</b> can be obtained through <u>Luna Paint</u> or <u>Pix Spy</u></li>
+            </ul>
+        </li>
+
+        <li>Add <b>href</b> to <code>&lt;area&gt;</code> to make it clickable.</li>
+        <li>Add <b>title</b> to <code>&lt;area&gt;</code> for tooltip popups.</li>
+        <li>Add <b>target="_blank"</b> to <code>&lt;area&gt;</code> so links open in a new tab.</li>
+        <li>Add <u>link</u> to image map resizer JSDelivr CDN.
+            <ul>
+                <li>Call <b>imageMapResize()</b> to automatically scale image maps.</li>
+            </ul>
+        </li>
+
+    </ol>
+</p>
+<h2>Using a Sub level on Lists</h2>
+<p>Add an <code>&lt;ul&gt;</code> inside of a <code>&lt;li&gt;</code> item.</p>
+
+<h3 id="circles">All about circles</h3>
+<script>
+    imageMapResize();
+</script>

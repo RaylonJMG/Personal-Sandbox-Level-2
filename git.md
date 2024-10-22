@@ -46,7 +46,8 @@ git pull origin main
  
 ### PUSH TO GITHUB FOR THE FIRST TIME 
 ```
-gh auth login git remote set-url origin https://github.com/myRepositoryLink2 
+gh auth login 
+git remote set-url origin https://github.com/myRepositoryLink2 
 git add . 
 git commit -m "added files" 
 git push --set-upstream origin main
@@ -63,7 +64,7 @@ git push
 `git branch -M main` 
 
 ### SET DEFAULT BRANCH TO MATN 
-`git config --global init.defaultBranch main"`
+`git config --global init.defaultBranch main`
 
 ### DELETE SOURCE CONTROL
 ```
@@ -86,15 +87,13 @@ rm -r .git
    - Pushes files to GitHub and makes origin and main the default options
 6. `git branch`
    - Views the branches 
+---
 
-
-Add git init to configure user name
 ### CONFIGURE USER NAME
 1. Run the command `git init`.
 2. Run the command `git config user.name`.
 3. If it's not correct, run the command `git config user.name "myUserName"`.
 
-Make sure the commands are on their own lines for this topic
 ### PUSH TO GITHUB FOR THE FIRST TIME
 1. `gh auth login`
 2. `git remote set-url origin https://github.com/myRepositoryLink2`
@@ -102,15 +101,11 @@ Make sure the commands are on their own lines for this topic
 4. `git commit -m "added files"`
 5. `git push --set-upstream origin main`
 
-Add git init to configure user email
 ### CONFIGURE USER EMAIL
 1. Run the command `git init`.
 2. Run the command `git config user.email`.
 3. If it's not correct, run the command `git config user.email "my@email.com`.
 
-New commands
-
-Global email
 ### CONFIGURE GLOBAL USER EMAIL (DEFAULT EMAIL)
 1. Run the command `git init`.
 2. Run the command `git config --global user.email`.
@@ -138,6 +133,93 @@ git push
 ### SWITCH TO A BRANCH IN GLITCH
 `git checkout myBranch`
 
-### MERGING CHANGES
-1. Switch to the branch that will absorb the changes. Ex `git switch main`
+### MERGING BRANCH CHANGES
+1. Switch to the branch that will absorb the changes. Example: `git switch main`
 2. `git merge [branchName]`
+
+---
+
+### MERGE TEST
+
+INITIALIZE SOURCE CONTROL
+
+1. `git init`
+2. `touch index.html`
+3. `git add .`
+4. `git commit -m "added files"`
+5. GITHUB: Create a new repository called merge-test
+6. `git remote add origin https://myRepository`
+   
+PUSH TO A NEW REPOSITORY
+
+7. `git push --set-upstream origin main`
+8. `git branch myBranch`
+9.  `git switch myBranch`
+10. add `<p>Hello World!</p>` to the index.html file
+11. Save the changes CTRL + S
+12. `git add .`
+13. `git commit -m "updated file`
+14. `git switch main`
+15. Change the history from `Auto` to `All`
+
+MERGE THE BRANCH
+
+16. `git merge myBranch`
+17. `git push`
+18. `git switch myBranch`
+19. Add `<p> Amazing World!</p>` to index.html file
+
+SETUP FOR REBASE
+
+20. Save the changes CTRL + S
+21. `git add .`
+22. `git commit -m "updated file"`
+23. `git switch main`
+24. Add the file about.html with `touch about.html`
+25. `git add .`
+26. `git commit -m "added a file"`
+27. `git merge myBranch`
+28. Approve the merge by closing the merge editor
+
+REBASE THE COMMITS
+
+29. `git rebase myBranch`
+30. `git push`
+31. `git switch myBranch`
+32. `git rebase main`
+
+CORRECT A MERGE CONFLICT
+
+33. Add <h1>About Page</h1> to about.html
+34.  Save the changes CTRL + S
+35. `git add .`
+36. `git commit -m "added heading"`
+37. git switch main
+38. Add <h2>About Page</h2> to about.html
+39. Save the changes CTRL + S
+40. `git add .`
+41. `git commit -m "added heading"`
+42. `git merge myBranch` //creates a conflict
+43. Select a resolution.
+44. Save the changes CTRL + S
+45. `git add .`
+46. `git commit -m "merged changes"`
+47. `git push` //fixed a merge conflict
+    
+CORRECT A REBASE CONFLICT  
+
+48. `git rebase myBranch`
+49. Select a resolution
+50. Save the changes CTRL + S
+51. `git add .`
+52. `git rebase --continue`
+53. `git push` will result in an error
+54. `git push --force`
+
+RESTORE A SAVE POINT
+
+55. Select a commit to retore.
+56. Copy its id.
+57. `git reset--hard id123456789`
+58. `git push`
+59. `git push --force`
