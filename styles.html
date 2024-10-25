@@ -7,6 +7,7 @@
 </head>
 
 <body>
+    --> Class Notes 10/21/2024
     <header>
         <nav></nav>
     </header>
@@ -38,7 +39,175 @@
             makes the element invisible, though it is still accessible in the Elements panel. <
         </pre>
 
-        <img src="2d-shapes.jpg">
+        <img src="2d-shapes.jpg"> ---> Class Notes 10/22/2024
+        <pre>
+            background image
+            background-image:url("bgimg.png")
+            Add the filename of URL for the image
+        </pre>
+        <div class="thumbs-up width100 height">Background Image</div>
+
+        <div class="gradient-basic height"></div>
+        <pre>
+            Basic gradient-basic
+            background-image:linear-gradient(white, gray)
+            Add the filename of URL for the image
+        </pre>
+        <div class=""></div>
+
+        <div class="gradient-basic height"></div>
+        <pre>
+            Change Direction of color gradients
+            background-image:linear-gradient(to right, white, gray)
+            Options:
+                to right
+                to bottom right
+                to left
+                to bottom left
+        </pre>
+
+        <pre class="gradient-degrees">
+            Gradient Degrees
+                background-image: linear-gradient (90deg, white, gray, green);
+                To change the direction, add degrees to the beginning
+            90deg (right)
+            135deg (bottom right)
+            270deg (left)
+            225deg (bottom left)
+            </pre>
+
+        <pre>
+        Adding multiple background images
+        background-image:url("backgroundimg.png")
+        background-image: linear-gradient(white, gray)
+        Add background images to nesting elements.
+        The elements nested deeply will appear in front.
+    </pre>
+        <div class="thumbs-up width100 height">Background Image</div>
+
+        <pre class="rgba gradient-basic">
+        RGBA = Red Green Blue Alpha
+        color: rgb(6, 68, 0, 0.354); 
+        Sets the transparency of colors
+        0 alpha is invisible
+        1 alpha is fully visible
+        </pre>
+
+        <pre class="opacity25"> 
+        Opacity
+        opacity: 0.25;
+        Sets the transparency of elements
+        0 is invisible
+        1 is fully visible
+        </pre>
+
+        <div class="" gradient-basic ">
+        <img class="opacity25 " src="thumbs-up.png ">
+
+Class Notes 10/24/2024
+        <pre>
+            Grouping Selector
+            i, b {
+                color:green;
+            }
+            Separate elements, classes, or ids with commas.
+            The grouping selector applies the style to all of those elements.
+        </pre>
+        <i class=".i-green ">italic tag</i>
+        <b class=".b-green ">bold tag</b>
+        <i class=".i-green ">italic tag</i>
+        <b class=".b-green ">bold tag</b>
+
+        <pre>
+            Nesting Selector
+            i b {
+                color: green;
+            }
+            Select the nested element(s)
+            Example: &lt;b&gt; is nested in &lt;i&gt;
+            Only colors the 
+        </pre>
+        <i>italic tag
+            <b>Inside of the &lt;i&gt; tag</b>
+        </i>
+        <b>Not inside the &lt;i&gt; tag</b>
+
+        <pre>
+            Specificity = order of styling priority
+            1. inline (most specific)
+            2. id
+            3. class
+            4. element (least specific)
+            Styles are applied based on their priority.
+            Styles with lower priority get overwritten.
+            !important overrides them all and goes by load order.
+            The !important that gets loaded last gets applied.
+        </pre>
+        <article id="red-italic " class="blue-bold ">article with id red italic and class blue bold</article>
+        <article class="blue-bold ">article with class blue bold</article>
+        <article style="color:black " class="blue-bold ">article with inline style black, and class blue-bold</article>
+        <article>article by itself</article>
+       
+       <h3>Box Model</h3>
+        <pre>
+            Padding Shorthand properties
+            4 Values: sets each side individually
+                padding: 5px 6px 7px 8px;
+                Padding gets applied in a clockwise direction when 4 values are specified
+                1. top
+                2. right
+                3. bottom
+                4. left
+
+            3 Values: 
+                padding: 10px 20px 30px;
+                Providing 3 values specifies
+                1. top
+                2. left and right
+                3. bottom 
+            
+            2 Values: 
+                padding: 10px 20px;
+                Providing 2 values specifies
+                1. top and bottom
+                2. left and right
+
+            1 Value: sets all sides equally
+                padding: 10px;
+        </pre>
+        <pre>
+            Margins
+                Attributes:
+                1. margin-top
+                2. margin-bottom
+                3. margin-left
+                4. margin-right
+
+                Margin Shorthand properties
+                4 Values: sets each side individually
+                    margin: 5px 6px 7px 8px;
+                    Margin gets applied in a clockwise direction when 4 values are specified
+                    1. top
+                    2. right
+                    3. bottom
+                    4. left
+    
+                3 Values: 
+                    margin: 10px 20px 30px;
+                    Providing 3 values specifies
+                    1. top
+                    2. left and right
+                    3. bottom 
+                
+                2 Values: 
+                    margin: 10px 20px;
+                    Providing 2 values specifies
+                    1. top and bottom
+                    2. left and right
+    
+                1 Value: sets all sides equally
+                    margin: 10px;
+        </pre>
 
     </main>
     <footer> </footer>

@@ -11,7 +11,7 @@
 
     <h3>Buttons</h3>
     <pre>
-        <button type="button">Click Button>
+        <button type="button">Click Button</button>
         <input type="button" value="Click Button">
         <input type="submit" value="Add Submission">
         <input type="reset" value="Reset Form">
@@ -24,7 +24,7 @@
     <pre>
         <input type="text" placeholder="Text input">
         <input type="email" placeholder="Email input">
-        <input type="tel" placeholder="Telephone number input">
+        <input type="tel" placeholder="Telephone number input" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
         <input type="number" placeholder="Number input">
         <input type="password" placeholder="Password input">
         <input type="search" placeholder="Search input">
@@ -55,20 +55,27 @@
     <pre>
         Forms can validate their input. Inputs are checked before submission.Type invalid values to see form validation.
     </pre>
+
     <form>
         <input type="email" placeholder="Email address">
-        <input type="submit" placeholder="">
+        <input type="submit">
     </form>
 
-    <form onsubmit="myProcessorForm(event)">
+    <form>
+        <input type="tel" placeholder="Phone number input" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+        <input type="submit">###-###-####
+    </form>
+
+    <form onsubmit="processForm(event)">
         <input required name="firstname" name="lastname" type="password" placeholder="Password"><br>
         <button type="submit">Submit</button>
     </form>
+
     <script>
-        display("Hello World");
+        display("Hello World!");
     </script>
     <div id="outputTag"></div>
-    <button onclick="display('Amazing World!')"></button>
+    <button onclick="display('Amazing World!')">Click Button</button>
 
 
     </body

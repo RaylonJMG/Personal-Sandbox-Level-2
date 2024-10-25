@@ -125,10 +125,10 @@ git push
 `git branch`
 
 ### CREATE A BRANCH
-`git branch [branchName]`
+`git branch branchName`
 
 ### SWITCH TO A BRANCH
-`git switch [branchName]`
+`git switch branchName`
 
 ### SWITCH TO A BRANCH IN GLITCH
 `git checkout myBranch`
@@ -213,12 +213,12 @@ CORRECT A REBASE CONFLICT
 50. Save the changes CTRL + S
 51. `git add .`
 52. `git rebase --continue`
-53. `git push` will result in an error
+53. `git push` //will result in an error
 54. `git push --force`
 
 RESTORE A SAVE POINT
 
-55. Select a commit to retore.
+55. Select a commit to restore.
 56. Copy its id.
 57. `git reset--hard id123456789`
 58. `git push`
