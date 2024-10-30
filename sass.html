@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>SASS</title>
+    <link href="sass.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav></nav>
+    </header>
+    <main>
+        <h1>SASS</h1>
+        <p>Syntactically <b>Awesome</b> Style Sheets</p>
+        <pre>
+        SASS <code>Nesting</code> Syntax
+        pre{ 
+            code {
+            color:red;
+            }
+        }
+        
+        A style can be nested in another style to select a nested element
+        The code tag in the pre tag is styled
+        </pre>
+        <br>
+        <pre>
+            SASS <i>Variable</i> Syntax
+            $myColor: purple;
+            pre{ 
+                i {
+                color:$myColor;
+                }
+            }
+
+            SASS variables starts with $
+            Use colon to store a value
+            Use the value with the variable name to access the value
+        </pre>
+        <hr>
+        <pre>
+            Background Image variable
+            ----------------------------
+            $sunPhrase:url("sun-phrase.png")
+            .bg-image {
+                background-image: $sunPhrase;
+            }
+        </pre>
+        <div class="bg-image width height size10"></div>
+        <hr>
+        <pre>
+            Horizontal Repeat variable
+            $horizontalRepeat: space no-repeat;
+            .horizontalRepeat {
+                background-repeat: $horizontalRepeat;
+            }
+        </pre>
+        <div class="horizontalRepeat bg-image width height size15"></div>
+        <hr>
+        <pre>
+            Vertical Repeat Variable
+            $verticalRepeat: no-repeat repeat;
+            .verticalRepeat {
+                background-repeat: $verticalRepeat;
+            }
+        </pre>
+        <div class="verticalRepeat bg-image width height size10"></div>
+        <hr>
+        <pre>
+            BackGround Size Variable
+            background-size: 25% 15%;
+            $stretch: 25% 100%
+            .stretch {
+            background-size: $stretch;
+            }
+        </pre>
+        <div class="stretch bg-image width height"></div>
+
+        <hr>
+        <div class="gradient width height">
+            <pre>
+            Gradient Variables
+            $darkGradient:linear-gradient(90deg, gray, black 10% 90%, gray);
+            $lightGradient: linear-gradient(90deg, gray, white 10% 90%, gray);
+            .gradient {
+                background-image: $lightGradient;
+            }
+            </pre>
+        </div>
+
+    </main>
+    <footer></footer>
+</body>
+
+</html>

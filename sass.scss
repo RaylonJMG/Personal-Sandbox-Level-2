@@ -1,0 +1,90 @@
+h1 {
+    color: green;
+}
+
+p b {
+    color: blue;
+}
+
+pre {
+    code {
+        color: red;
+    }
+}
+
+pre {
+    i {
+        color: purple;
+    }
+}
+
+$sun:url("sun.png");
+.bg-image {
+    background-image: $sun;
+}
+
+$horizontalRepeat: space no-repeat;
+.horizontalRepeat {
+    background-repeat: $horizontalRepeat;
+}
+
+$verticalRepeat: no-repeat repeat;
+.verticalRepeat {
+    background-repeat: $verticalRepeat;
+}
+
+.width {
+    width: 100vw;
+}
+
+.height {
+    height: 70vw;
+}
+
+.size10 {
+    background-size: 10%;
+}
+
+.size15 {
+    background-size: 15%;
+}
+
+.size20 {
+    background-size: 20%;
+}
+
+.size25 {
+    background-size: 25%;
+}
+
+.size33 {
+    background-size: 33%;
+}
+
+.size50 {
+    background-size: 50%;
+}
+
+.size75 {
+    background-size: 75%;
+}
+
+.size100 {
+    background-size: 100%;
+}
+
+.stretch {
+    background-size: 25% 100%;
+}
+
+$darkGradient:linear-gradient(90deg,
+green,
+black 10% 90%,
+blue);
+$lightGradient: linear-gradient(90deg,
+green,
+white 10% 90%,
+blue);
+.gradient {
+    background-image: $lightGradient;
+}
