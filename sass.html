@@ -80,7 +80,7 @@
         <hr>
         <div class="gradient width height">
             <pre>
-            Gradient Variables
+            Color Stop Gradient Variables
             $darkGradient:linear-gradient(90deg, gray, black 10% 90%, gray);
             $lightGradient: linear-gradient(90deg, gray, white 10% 90%, gray);
             .gradient {
@@ -88,9 +88,90 @@
             }
             </pre>
         </div>
+        <br>
+        <pre>
+                RGBA Color Variables
+                $darkGreen: rgba(0, 95, 0, 1);
+                $lightBlue: rgba(71, 71, 255, 1);
+                $darkRed: rgba(140, 0, 0, 1);
+                $lightPurple: rgba(161, 61, 161, 1);
+
+                Declare the color variables all in one area.
+                Use them throughout the SASS file.
+                Changing the value of the variable affects the whole file.
+                Single source of truth - changing 1 thing changes them all.
+            </pre>
+        <br>
+        <pre>
+               Single Line Comments
+               //CUSTOM COLORS
+               /**/
+               SASS supports single line commments like JavaScript 
+            </pre>
+
+        <br>
+        <pre>
+                Adjust width to automatically fit content
+                <code>width:fit-content;</code>
+                
+                Useful on block elements.
+                Block elements still use a whole line
+                The hit box of the block element is reduced
+                In comparison with <code>display:inline</code>, which can line up the elements. 
+            </pre>
+        <br>
+        <pre>
+            Parent Syntax
+            <code>
+                h1 {
+                    color: $darkGreen;
+                    width: fit-content;
+                    &:hover {
+                        color: $darkRed;
+                    }
+                }
+            </code>
+            Groups styles together under the parent selector.
+            Use <code>&</code> to substitute for the parent.
+            Any style belongining to the parent will be passed to the child styles.
+        </pre>
+        <br>
+        <pre>
+            Font Variables
+            <code>$primaryFont: sans-serif;
+                $secondaryFont: fantasy;</code>
+                Use variables to store fonts.
+                Single source of truth
+            options: serif, sans-serif, monospace, cursive, fantasy
+        </pre>
+        <br>
+        <pre>
+            Add fonts
+            <code>
+                @font-face {
+                font-family: "good-vibes";
+                src: url("goodvibes.ttf");
+            }
+            main {
+                font-family: "good-vibes";
+            }
+            </code> 
+            
+            1. Download font: websearch "free font downloads" example: https://dafont.com.
+            2. If the font is in a .zip, move the font file to a root folder.
+            3. Use <code>@font-face</code> to add the font. 
+            4. Use <code>font-family</code> to name it.
+            5. Use <code>src: url ()</code> to link the font file.
+            6. Use the font name.
+        </pre>
+
+
+
+
+
 
     </main>
-    <footer></footer>
+    <footer>Hello footer!</footer>
 </body>
 
 </html>
