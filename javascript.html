@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>JavaScript Level II</title>
+    <link href="javascript.css" rel="stylesheet">
+    <script src="javascript.js"></script>
+
+</head>
+
+<body>
+    <header>
+        <nav></nav>
+    </header>
+    <main>
+        <pre>
+            JavaScript Review
+            -----------------
+            <code>
+                function display(message) {
+                    document.write(message);
+                }
+            </code>
+            <button onclick="display('Hello World!')">Click Me!!!</button>
+        </pre>
+        <hr>
+        <pre>
+            Activator function
+            -----------------
+            <code>
+                function greeting (){
+                    display("Hello World!");
+                }
+            </code>
+            A function that doesnt have parameters
+            its only purpose is to call a function with parameters
+            <button onclick="greeting()">Activate Me!!!</button>
+        </pre>
+        <hr>
+        <pre>
+            Callback function
+            -----------------
+            <code>
+                function myFunction(callbackFunction){
+                    callbackFunction();
+                }
+                function activator(){
+                    myFunction(greeting);
+                }
+                activator();
+            </code>
+            A function that is passed as a parameter.
+            A function can be passed to another function.
+            The function can run that function.
+            
+            <button onclick="activator()">Activate Me!!!</button>
+        </pre>
+        <hr>
+        <pre>
+            setTimeout
+            -----------------
+            <code>
+                function delayedGreeting(){
+                    setTimeout(greeting, 5000);
+                }
+            </code>
+            A function that calls a function after a specified time.
+            It accepts a function and a delay time in milliseconds.
+            <button onclick="delayedGreeting()">Delayed Greeting</button>
+        </pre>
+        <hr>
+        <pre>
+            Asynchronous
+            -----------------
+            <code>
+                function asynchronous() {
+                    setTimeout(greeting, 5000);
+                    display("Waiting for the greeting...");
+                }
+            </code>
+            Able to run other code while waiting for some code to respond.
+            Like multitasking.
+            Other code runs immediately after <code>setTimeout</code>.
+            The <code>greeting</code> function runs after other code.
+            <button onclick="asynchronous()">Delayed Greeting</button>
+        </pre>
+        <hr>
+        <pre>
+            Server Simulation
+            -----------------
+            A server takes time to respond.
+            Use asynchronous code to simulate it.
+            <form onsubmit="submitForm(event)">
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email" required><br>
+                <input type="submit">
+            </form>
+            <code>
+                function submitForm(event) {
+                    const inputs = event.target;
+                    const emailInput = inputs[0];
+                    const email = emailInput.value;
+                    document.write("Submitting form for" + email + "...");
+                    setTimeout(serverResponse, 5000);
+                }
+                
+                function serverResponse() {
+                    display("Form was successfully processed.");
+                }
+            </code>
+        </pre>
+        <hr>
+        <pre>
+            JSON stringify
+            -----------------
+            <code>
+                function displayObject(){
+                    const myCar = { 
+                        color: "red", 
+                        year: 2024 
+                    }; 
+                
+                const result = JSON.stringify(myCar);
+                    display(result);
+                }
+            </code>
+            Converts an object into a string.
+            1. stringify the object
+            2. store the result
+            3. display the result.
+
+            JSON = JavaScript Object Notation
+            • The syntax we use to represents objects
+            • Curly braces represent an object
+            • Properties are separated by a comma
+            • Properties are in quotes
+            • Values are set with a colon
+        </pre>
+    </main>
+    <footer></footer>
+</body>
+
+</html>
