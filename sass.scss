@@ -4,8 +4,65 @@ $lightBlue: rgba(71, 71, 255, 1);
 $darkRed: rgba(140, 0, 0, 1);
 $lightPurple: rgba(161, 61, 161, 1);
 //CUSTOM FONTS
-$primaryFont: "good vibes";
-$secondaryFont: fantasy;
+$primaryFont:"good vibes";
+$secondaryFont: serif;
+//MIXINS
+@mixin redText {
+    color: red;
+}
+
+@mixin boxShadow {
+    box-shadow: 5px 5px greenyellow;
+}
+
+@mixin textShadow {
+    text-shadow: 3px 3px white;
+}
+
+@mixin animation1 {
+    transform: scale(1) rotate(0deg);
+    transition: transform 1s;
+}
+
+@mixin animation2 {
+    transform: scale(2) rotate(15deg);
+    transition: transform 2s;
+}
+
+@mixin animation {
+    transform: scale(1) rotate(0deg);
+    transition: transform 1s;
+    &:hover {
+        transform: scale(0.5) rotate(-10deg);
+        transition: transform 2s;
+    }
+}
+
+p {
+    @include redText;
+}
+
+#mixin-example {
+    @include boxShadow;
+    @include textShadow;
+}
+
+#mixin-button {
+    @include animation1;
+    &:hover {
+        @include animation2;
+    }
+}
+
+#animated-button {
+    @include animation;
+}
+
+#subtitle {
+    width: fit-content;
+    @include animation;
+}
+
 @font-face {
     font-family: "good vibes";
     src: url("goodvibes.ttf");
@@ -15,7 +72,7 @@ $secondaryFont: fantasy;
 /**/
 
 main {
-    font-family: $primaryFont;
+    font-family: $secondaryFont;
 }
 
 h1 {

@@ -3,6 +3,7 @@
 
 <head>
     <title>SASS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href="sass.css" rel="stylesheet">
 </head>
 
@@ -10,7 +11,7 @@
     <header>
         <nav></nav>
     </header>
-    <main>
+    <main class="container">
         <h1>SASS</h1>
         <p>Syntactically <b>Awesome</b> Style Sheets</p>
         <pre>
@@ -24,7 +25,7 @@
         A style can be nested in another style to select a nested element
         The code tag in the pre tag is styled
         </pre>
-        <br>
+        <hr>
         <pre>
             SASS <i>Variable</i> Syntax
             $myColor: purple;
@@ -88,13 +89,13 @@
             }
             </pre>
         </div>
-        <br>
+        <hr>
         <pre>
-                RGBA Color Variables
-                $darkGreen: rgba(0, 95, 0, 1);
-                $lightBlue: rgba(71, 71, 255, 1);
-                $darkRed: rgba(140, 0, 0, 1);
-                $lightPurple: rgba(161, 61, 161, 1);
+            RGBA Color Variables
+            $darkGreen: rgba(0, 95, 0, 1);
+            $lightBlue: rgba(71, 71, 255, 1);
+            $darkRed: rgba(140, 0, 0, 1);
+            $lightPurple: rgba(161, 61, 161, 1);
 
                 Declare the color variables all in one area, towards the top.
                 Use them throughout the SASS file.
@@ -114,42 +115,63 @@
                SASS removes all comments from the generated CSS file.
             </pre>
 
-        <br>
         <pre>
-                Adjust width to automatically fit content
-                <code>width:fit-content;</code>
-                
-                Useful on block elements.
-                Block elements still use a whole line
-                The hit box of the block element is reduced
-                In comparison with <code>display:inline</code>, which can line up the elements. 
-            </pre>
-        <br>
+            :hover
+            --------
+            fix block element hover by adjusting the width
+            <code>
+                width: fit-content;
+            </code>
+            The hover style is a block element, which is activated by the whole line.
+            The hover style activates over empty content.
+        </pre>
+
+        <hr>
+        <pre>
+            Adjust width to automatically fit content
+            <code>width:fit-content;</code>
+            
+            Useful on block elements.
+            Block elements still use a whole line
+            The hit box of the block element is reduced to its content
+            In comparison with <code>display:inline</code>, which can line up the elements. 
+        </pre>
+        <hr>
         <pre>
             Parent Syntax
             <code>
                 h1 {
                     color: $darkGreen;
                     width: fit-content;
+
                     &:hover {
                         color: $darkRed;
                     }
                 }
             </code>
             Groups styles together under the parent selector.
-            Use <code>&</code> to substitute for the parent.
-            Any style belongining to the parent will be passed to the child styles.
+            Use <code>&</code> to substitute for the parent (containing selector).
+            Any style belonging to the parent will be passed to the child styles.
         </pre>
-        <br>
+        <hr>
         <pre>
             Font Variables
-            <code>$primaryFont: sans-serif;
-                $secondaryFont: fantasy;</code>
-                Use variables to store fonts.
-                Single source of truth
-            options: serif, sans-serif, monospace, cursive, fantasy
+            <code>
+                $primaryFont: sans-serif;
+                $secondaryFont: fantasy;
+            </code>
+            Use variables to store fonts.
+            Declare the font variables all in one area, towards the top of the file before the variables are used.
+            Changing the value of the variable affects the whole file.
+            Single source of truth - changing 1 thing changes them all.
+            Font Families: 
+               1. serif 
+               2. sans-serif 
+               3. monospace 
+               4. cursive 
+               5. fantasy
         </pre>
-        <br>
+        <hr>
         <pre>
             Add fonts
             <code>
@@ -169,15 +191,131 @@
             5. Use <code>src: url ()</code> to link the font file.
             6. Use the font name.
         </pre>
-        <br>
+        <hr>
+        <h2>SASS MIXINS</h2>
         <pre>
+            SASS Single-Line Mixins
+            ----------------------------
+            <code>
+                @mixin redText {
+                    color: red;
+                }
+                p {
+                    @include redText;
+                }  
+            </code>  
+            Mixins are like SASS variables 
+            Single-line mixins store a property and a value.
+            Type <code>@mixin</code> to declare/define a mixin variable.
+            Type <code>@include</code> to use the mixin.
+            Mixins can substitute for utility classes so elements can be described by their name.
             
         </pre>
+        <br>
+        <pre>
+            Box Shadow Mixin
+            ----------------------------
+            <code>
+                @mixin boxShadow {
+                    box-shadow: 5px 5px greenyellow;
+                }
+                #mixin-example {
+                    @include boxShadow;
+                }
+            </code>
+            <p>This is a Paragraph!</p>
+            <span class="bg-primary" id="mixin-example">Hello World!</span>
+        
+        </pre>
+        <br>
+        <pre>
+        Text Shadow
+        ----------------------------
+        <code>
+            #mixin-example {
+                @include boxShadow;
+                text-shadow: 0px 0px yellow;
+            }
+        </code>
+        <p>This is a Paragraph!</p>
+        <span class="bg-primary p-3" id="mixin-example">Hello World!</span>
+    </pre>
+        <br>
+        <pre>
+        Using multiple Mixins
+        -----------------------
+        <code>
+            #mixin-example {
+                @include boxShadow;
+                @include textShadow;
+            }
+        </code>
+        SASS allows you to use multiple mixins
+    </pre>
+        <br>
+        <pre>
+            SASS Multi-Line Mixins
+            ----------------------------
+            <code>
+                @mixin animation1 {
+                    transform:scale(1) rotate(0deg);
+                    transition: transform 1s;
+                }
 
+                @mixin animation2 {
+                transform: scale(2) rotate(15deg);
+                transition: transform 2s;
+                } 
 
+                #mixin-button {
+                    @include animation1;
+                }
 
+                #mixin-button:hover {
+                    @include animation2;
+                }
+               
+            </code>
+            A Multi-Line mixin stores multiple properties and values.
 
+            <button class="btn btn-success" id="mixin-button">Click Me!</button>
+            Condensed to parent syntax
+            <code>
+                #mixin-button {
+                    @include animation1;
+                    
+                    &:hover {
+                        @include animation2;
+                    }
+                }
+            </code>
+        </pre>
+        <br>
+        <pre>
+            SASS All-in-One Mixins
+            -----------------------
+            <code>
+                @mixin animation {
+                    transform: scale(1) rotate(0deg);
+                    transition: transform 1s;
+                
+                    &:hover {
+                        transform: scale(0.5) rotate(-10deg);
+                        transition: transform 2s;    
+                    }
+                    
+                }
+                #animated-button {
+                    @include animation;
+                }
+            </code>
+            The all-in-one mixin includes animation1 and animation2.
+            Parent syntax is used.
+            This mixin can be used in any element to animate it.
 
+            <button class="btn btn-primary" id="animated-button">Hello!</button>
+            <h2 class="bg-warning" id="subtitle">Here's an h2</h2>
+        </pre>
     </main>
     <footer>Hello footer!</footer>
 </body>
