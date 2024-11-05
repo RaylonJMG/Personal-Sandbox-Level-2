@@ -1,10 +1,48 @@
+p {
+  color: red;
+}
+
+#mixin-example {
+  box-shadow: 5px 5px greenyellow;
+  text-shadow: 3px 3px white;
+}
+
+#mixin-button {
+  transform: scale(1) rotate(0deg);
+  transition: transform 1s;
+}
+#mixin-button:hover {
+  transform: scale(2) rotate(15deg);
+  transition: transform 2s;
+}
+
+#animated-button {
+  transform: scale(1) rotate(0deg);
+  transition: transform 1s;
+}
+#animated-button:hover {
+  transform: scale(0.5) rotate(-10deg);
+  transition: transform 2s;
+}
+
+#subtitle {
+  width: -moz-fit-content;
+  width: fit-content;
+  transform: scale(1) rotate(0deg);
+  transition: transform 1s;
+}
+#subtitle:hover {
+  transform: scale(0.5) rotate(-10deg);
+  transition: transform 2s;
+}
+
 @font-face {
   font-family: "good vibes";
   src: url("goodvibes.ttf");
 }
 /**/
 main {
-  font-family: "good vibes";
+  font-family: serif;
 }
 
 h1 {
