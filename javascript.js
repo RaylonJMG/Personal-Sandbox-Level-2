@@ -109,6 +109,7 @@ function activatorTest(myParameter) {
     display(myParameter);
 }
 
+//FUNCTION WITHIN ANOTHER FUNCTION
 function outerFunction() {
     const message = "Message from the outer function";
     innerFunction();
@@ -117,3 +118,56 @@ function outerFunction() {
         display(message);
     }
 }
+
+//PROMISE FUNCTION
+function makeRequest("https://myserver.com") {
+    const promise = new Promise(getServerResponse);
+    return promise;
+}
+
+//HANDLER FUNCTIONS
+function handleSubmit(event) {
+    debugger;
+    event.preventDefault();
+    const inputs = event.target;
+    const emailInput = inputs[0];
+    const email = emailInput.value;
+    display("Submitting form for" + email + "...");
+    const promise = new Promise(getServerResponse);
+    setTimeout(serverResponse, 5000);
+}
+
+//SERVER STIMULATION
+function getServerResponse(resolve){
+    setTimeout(activateResolve, 5000);
+
+    function activateResolve(){
+        debugger;
+        //SIMULATE A SERVER BY SENDING A STRINGIFIED OBJECT
+        const response = { 
+            message: "Successfully processed.",
+        };
+    const resolveValue = JSON.stringify(response);
+    resolve(resolveValue);
+    }
+}
+
+//PARSE
+function handleSubmit(event) {
+    debugger;
+    event.preventDefault();
+    const inputs = event.target;
+    const emailInput = inputs[0];
+    const email = emailInput.value;
+    display("Submitting form for" + email + "...");
+    const promise = makeRequest("https://myserver.com");
+    promise.then(parseResponse);
+}
+
+function parseResponse(resolveValue){
+    debugger;
+    const response = JSON.parse(resolveValue);
+    const message = response.message;
+    display(resolveValue);
+}
+

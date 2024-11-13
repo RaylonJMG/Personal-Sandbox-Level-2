@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title></title>
+    <link href="api.css" rel="stylesheet">
+    <script src="utility-functions.js"></script>
+    <script src="api.js"></script>
+</head>
+<body>
+    <header>
+        <nav></nav>
+    </header>
+    <main>
+        <pre>
+            REST API
+            ---------------
+            <code>
+
+            </code>
+            REST: Representational State Transfer
+            API: Application Programming Interface
+            A set of rules for communicating with the server.
+            The URL to connect with the server must be properly formed.
+        </pre>
+<br>
+<pre>
+            REST API analogy
+            -----------------
+            <code>
+            <img src="api-analogy.jpg">
+            </code>
+            1. Customer: Requests a meal from the menu.
+            2. Waiter: Writes the request in a way the chef understands.
+            3. Chef: Processes the request by cooking the meal.
+            4. Waiter: Responds by delivering the meal.
+
+            <img src="api-illustration.jpg">
+            1. Client: Makes a request according to the REST API rules (menu).
+            2. REST API: Sends the request in a way the server understands.
+            3. Server: Processes the request.
+            4. REST API: Delivers the response (stringified object).
+</pre>   
+<br>
+<pre>
+    Trivia API
+    ---------------
+    <button onclick="handleClick(event)">Trivia</button>
+</pre> 
+<br>
+<pre>
+    Fetch Function
+    -----------------
+    <code>
+        const promise = fetch("http://myserver.com");
+        const promise = fetch("https://opentdb.com/api.php?amount=1");
+    </code>
+    It sends a request to the URL of the REST API.
+    It returns a promise.
+    Its resolve value is not a stringified object.
+    The resolve value is a special object created by the fetch function.
+    There's an extra step to accept the response from the REST API.
+</pre> 
+<br>
+<pre>
+    The Text Method
+    ---------------
+    <code>
+        const promise = resolveValue.text(); //fetch object
+    </code>
+    Retrieves the stringified object from the fetch object.
+    Returns a promise.
+</pre>   
+    </main>
+    <footer></footer>
+</body>
+</html>

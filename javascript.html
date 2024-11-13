@@ -356,7 +356,7 @@
                         }
                     }
                 </code>
-                Use an inner function to give access to 
+                Use an inner function to give access to the resolve function
                 What do you observe about <code>serverResponse</code> as an inner function?
                 • It has access to resolved
                 • Promise is pending before the server response
@@ -382,7 +382,7 @@
 
                 Steps:
                 1. Create the function getMessage
-                Let then call getMessage
+                2. Let then call getMessage
                 3. Add a parameter to getMessage and display it
                 4. Send a value to resolve ()
             </pre>
@@ -393,16 +393,85 @@
                 <code>
                     resolve("The promise is fulfilled.");
                 </code>
-                The resolve value gets passed to the 
+                The resolve function is a callback function.
+                The resolve value gets passed to the function that is given to the Promise.
+                It indicates that the promise is fulfilled.
+                The resolve function is meant to be used by asynchronous code.
+                The resolve value gets passed to the callback of the <code>then</code> function.
 
                 What do you observe about using then and sending a value through resolve?
                 • The promise supposedly gets fulfilled
                 • A promise value is accessible
               </pre>
-
-
         <br>
-
+        <pre>
+            Promise Best Practices
+            --------------------------
+            <code>
+            const promise = makeRequest("https://myServer.com")
+            
+            function makeRequest("https://myServer.com") {
+                const promise = new Promise(getServerResponse);
+                return promise;
+            }
+            </code>
+        A promise is usually the return value of a function.
+        Communication with a server is called a request. 
+        Server communication is established with a URL. 
+        </pre>
+        <br>
+        <pre>
+            Method
+            -------
+            <code>
+                promise.then(getMessage);
+                or
+                document.write("Hello World!");
+            </code>
+            A method is a function that's part of an object.
+        </pre>
+        <br>
+        <pre>
+            Handler
+            --------
+            <code>
+                onclick=""
+                onsubmit="submitForm(event)"
+            </code>
+            A handler is a function that runs in response to an event.
+            Another example is <code>onclick</code> which can run a function in response to an event.
+            Example events:
+            1. When a form is submitted
+            2. When a button is clicked
+        </pre>
+        <br>
+        Handler Naming Convention
+        --------------------------
+        <code>
+            onsubmit="handleSubmit(event)"
+            onclick="handleClick(event)"
+        </code>
+        A handler function usually starts with <code>handle</code>
+        <br>
+        <pre>
+            Server Simulation w/ Promise
+            ---------------------------------
+            <form onsubmit="handleSubmit(event)">
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email" required><br>
+                <input type="submit">
+            </form>    
+        </pre>
+        <hr>
+        <pre>
+            JSON parse
+            ---------------
+            <code>
+                const response = JSON.parse(resolveValue);
+            </code>
+            Analyze the data and convert it to a usable format.
+            <code>JSON.parse</code> converts a string into an actual object.
+        </pre>
     </main>
     <footer></footer>
 </body>

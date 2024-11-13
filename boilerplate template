@@ -1,10 +1,8 @@
 <!doctype html>
 <html lang="en">
-
 <head>
     <title></title>
 </head>
-
 <body>
     <header>
         <nav></nav>
@@ -12,5 +10,4 @@
     <main></main>
     <footer></footer>
 </body>
-
 </html>
