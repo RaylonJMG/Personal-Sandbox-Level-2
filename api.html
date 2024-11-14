@@ -42,8 +42,32 @@
 </pre>   
 <br>
 <pre>
-    Trivia API
+    Trivia API 
     ---------------
+    <code>
+        function viewResponse(resolveValue){
+            const response = JSON.parse(resolveValue);
+            const results = response.results;
+            const item = results[0];
+            const question = item.question;
+            const answer = item.correct_answer;
+            const incorrects = item.incorrect_answers;
+        
+            const trivia = `<div>${question}</div>
+            <ol type="a">
+                <li>${incorrects[0]}</li>
+                <li>${incorrects[1]}</li>
+                <li>${incorrects[2]}</li>
+                <li>${answer}</li>
+            </ol>`;
+            output(trivia);
+        }
+    </code>
+    Open Trivia Database: free open-source database for trivia questions
+    https://opentdb.com
+    The documentation is like the "menu" of data
+    To request data, form the URL according to the REST API rules
+    To change the number of questions: https://opentdb.com/api.php?amount=10
     <button onclick="handleClick(event)">Trivia</button>
 </pre> 
 <br>
@@ -69,7 +93,50 @@
     </code>
     Retrieves the stringified object from the fetch object.
     Returns a promise.
-</pre>   
+</pre>  
+<br>
+<pre>
+    Data Extraction
+    -----------------
+    <code>
+        const results = response.results;
+   
+        const trivia = `<div>${question}</div>
+        <ol type="a">
+        <li>${incorrects[0]}</li>
+        <li>${incorrects[1]}</li>
+        <li>${incorrects[2]}</li>
+        <li>${answer}</li>
+        </ol>`;
+        output(trivia);
+    </code>
+1. Create sample HTML of a trivia question and its answers
+2. Converted it to a template string
+3. Replaced with variables
+4. output to an HTML element
+</pre>
+<br>
+<pre>
+    Specifying the Data
+    --------------------
+    <code>
+        https://opentdb.com/api.php?amount=10
+        https://opentdb.com/api_category.php
+
+    </code>
+    Specify <code>amount</code> to get multiple questions
+    Use different URL to see the list of categories and their ID
+    Use the API Helper to properly form a URL based on specifications
+    Paste the URL into the <code>fetch</code> function
+</pre>
+<br>
+<pre>
+
+</pre>
+    
+
+
+
     </main>
     <footer></footer>
 </body>
