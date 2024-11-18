@@ -99,6 +99,22 @@
     Data Extraction
     -----------------
     <code>
+        function viewResponse(resolveValue){
+            const response = JSON.parse(resolveValue);
+            const results = response.results;
+            const item = results[0];
+            const question = item.question;
+            const answer = item.correct_answer;
+            const incorrects = item.incorrect_answers;
+        }
+    </code>
+    Store each property one level at a time until you get the data you need.
+</pre>
+
+<pre>
+    Displaying the data
+    --------------------
+    <code>
         const results = response.results;
    
         const trivia = `<div>${question}</div>
@@ -111,7 +127,10 @@
         output(trivia);
     </code>
 1. Create sample HTML of a trivia question and its answers
-2. Converted it to a template string
+2. Converted it to a template string 
+    - by putting back ticks around the sample template and 
+    - storing it in a variable
+    - move it into javascript file
 3. Replaced with variables
 4. output to an HTML element
 </pre>
@@ -124,6 +143,7 @@
         https://opentdb.com/api_category.php
 
     </code>
+    The REST API documentation teaches how to form the URL to request specific data
     Specify <code>amount</code> to get multiple questions
     Use different URL to see the list of categories and their ID
     Use the API Helper to properly form a URL based on specifications
@@ -131,12 +151,146 @@
 </pre>
 <br>
 <pre>
+    Postman
+    -----------------
+    <code>
+        https://www.postman.com/downloads/
+    </code>
+    An application for trying out and testing REST APIs.
+    <code>Hide Sidebar</code> at bottom left closes the History Panel.
+    <code></code>splits the viewing pane
+</pre>
+<br>
+<pre>
+    Base URL
+    ---------------
+    The URL where the REST API is located.
+</pre>
+<br>
+<pre>
 
 </pre>
+<br>
+<pre>
+    Favorite Quotes API documentation
+    ----------------------------------
+    <code>
+        https://favqs.com/api/
+        https://favqs.com/api/qotd
+    </code>
+
+</pre>
+<br>
+<pre>
+    Endpoint
+    --------------------
+    <code>
+        /qotd
+    </code>
+use filter to find a word
+use type to find  a tag or author
+To use the quotes endpoint, an api key is required
+A path that is appended to the base URL
+contain data about specific resources
+Endpoint for Question of the day
+NOTE: If a CORS proxy server is not used there will be an error
+<button onclick="handleQuoteOfTheDay()">Quote of the Day</button>
+</pre>
+<br>
+<pre>
+    API Key Generation
+    ---------------
+    A unique string or code that grants access to a REST API
+    To use some REST APIs, an API is required
+    To use an API key from from FavQs.com:
+    1. Use the Postman App
+    2. Auth Tab
+    3. Change the type to Bearer Token
+    4. Paste API key into the token box
+</pre>
+<br>
+<pre>
+    CORS:Cross Origin Resource Sharing
+    ----------------------------------
+    <img width="50%" src="CORS1.jpg">
+    Origin: The web address of the client and server
+    Cross Origin: different origins
+    Resource: data such as files and stringified objects
+    Resource Sharing: transmitting the resources
+    The origin's policy for sharing resources
+    Servers are supposed to tell browsers their CORS policy
+    A list of origins that are allowed to access the server
+    Browsers block the response if the origin is not on the list
+    ----------------------------------
+    <img width="70%" src="CORS2.jpg">
+    Some servers do not specify their CORS policy
+    Browsers automatically block responses from different origins
+    The quotes API doesn't specify a CORS policy
+    Browsers automatically block responses from the quotes API
+    <img width="70%" src="CORS3.jpg">
+</pre>
+<br>
+<pre>
+    CORS Proxy Server
+    --------------------
+    <img width="50%" src="CORS4.jpg">
+    <img src="CORS5.jpg">
+    1. Accepts the request from the client.
+    2. Forwards the req to the API.
+    3. Receives the response from the API.
+    4. Manipulates the response so the browser doesn't block it. 
+</pre>
+<br>
+<pre>
+    thingProxy
+    ---------------
+    <img src="CORSThingProxy.jpg"> 
+    A public proxy server that's free to use
+    1. View the documentation in
+    https://github.com/Freeboard/thingproxy
+    2. Fetch with thingproxy
     
-
-
-
+</pre>
+<br>
+<pre>
+    API Authorization Key Headers
+    ----------------------------------
+    <code>
+        function handleQuotes(){
+            const proxy = "https://thingproxy.freeboard.io/fetch/";
+                const baseURL = "https://favqs.com/api";
+                const endPoint = "/quotes";
+                const URL = baseURL + endPoint;
+            const key = "";
+            const options = {
+                headers: {
+            Authorization: `Token token="${key}" `;
+            }
+            }
+                const promise = fetch(URL);
+                promise.then(extractResponse);
+            }
+    </code>
+    <button onclick="handleQuotes()">Quotes</button>
+</pre>
+<br>
+<pre>
+    Free APIs
+    -----------------
+    <code>
+        https://free-apis.github.io/
+    </code>
+    A list of free APIs
+    
+    Interesting APIs I found and like
+    ----------------------------------
+    1. <img src="AdviceAPI.jpg">
+        <code>
+            Base URL: https://api.adviceslip.com/ 
+            Random Advice: https://api.adviceslip.com/advice
+            Daily Advice: https://api.adviceslip.com/daily_adviceslip.rss
+        </code>   
+</pre>
     </main>
     <footer></footer>
 </body>

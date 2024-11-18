@@ -11,7 +11,7 @@ function parseResponse(resolveValue){
 }
 //TEXT METHOD
 function parseResponse(resolveValue){
-    //THE RESOLVE VALUS WILL BE A FETCH OBJECT
+    //THE RESOLVE VALUES WILL BE A FETCH OBJECT
     //THE TEXT METHOD EXTRACTS THE STRINGIFIED OBJECT
     const promise = resolveValue.text();
     promise.then(viewResponse);
@@ -46,4 +46,25 @@ function viewResponse(resolveValue){
     <li>${answer}</li>
     </ol>`;
     output(trivia);
+}
+
+function handleQuoteOfTheDay(){
+    debugger;
+    const proxy = "https://thingproxy.freeboard.io/fetch/";
+    const baseURL = "https://favqs.com/api";
+    const endPoint = "/qotd";
+    const URL = (proxy + baseURL + endPoint);
+    const promise = fetch(URL);
+    promise.then(extractResponse);
+}
+    
+//creates stringified objects
+function extractResponse(resolveValue){
+    const promise = resolveValue.text();
+    promise.then(parseQotdResponse);
+}
+
+function parseQotdResponse(resolveValue){
+    debugger;
+    const response = JSON.parse();
 }

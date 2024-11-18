@@ -137,7 +137,7 @@ function handleSubmit(event) {
     setTimeout(serverResponse, 5000);
 }
 
-//SERVER STIMULATION
+//SERVER SIMULATION
 function getServerResponse(resolve){
     setTimeout(activateResolve, 5000);
 
