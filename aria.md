@@ -22,7 +22,8 @@
 2. `aria-label=""`===ARIA for alerts.
    - This ARIA describes an item without a label.
    - `"Close"` is describing a button that has a meaning, but no label.
-   - Use on icons or images that have a meaning but no label.
+   - Use on icons or images that have a meaning but no label.<
+   - `<aria-label="close">`
 
 ### Enable the accessibility tree in developer tools. 
 
