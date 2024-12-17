@@ -1,3 +1,13 @@
+//Capstone Home page
+<span class="text-center">
+            <button onclick="handleClickAdvice()" class="btn btn-sm rounded-3 bg-primary" id="mixin-button">Get Advice Here</button> 
+        </span>
+        <div id="outputTag"></div>
+    
+
+
+
+
 //FETCH FUNCTION sends request to API URL and returns a promise
 function handleClickAdvice(){
     debugger;
@@ -15,7 +25,8 @@ function extractResponse(resolveValue){
 //parse method generates an object from the string
 function viewAdviceResponse(resolveValue){
     debugger;
-    const advice = JSON.stringify(resolveValue);
+    const result = JSON.parse(resolveValue);
+    const advice = result.slip.advice;
     output(advice);
 }
 

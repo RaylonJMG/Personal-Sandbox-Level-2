@@ -63,7 +63,7 @@ git push
 ### RENAME DEFAULT BRANCH TO MAIN 
 `git branch -M main` 
 
-### SET DEFAULT BRANCH TO MATN 
+### SET DEFAULT BRANCH TO MAIN 
 `git config --global init.defaultBranch main`
 
 ### DELETE SOURCE CONTROL
